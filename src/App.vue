@@ -1,18 +1,49 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+     <h1> welcome Vue state management </h1>
+     <AnotherResult :counter="counter"></AnotherResult>
+     <Result :counter="counter"></Result>
+     <hr>
+    <Counter @updated="counter= $event"></Counter>
+    <AsynchCounter @updated="counter= $event"></AsynchCounter>
+    <hr>
+    <input type="text" v-model="value">
+    <p> input value is {{ value }} </p>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Counter from './components/Counter';
+import Result from './components/Result';
+import AnotherResult from './components/AnotherResult';
+import AsynchCounter from './components/AsyncCounter';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Counter,
+    Result,
+    AnotherResult,
+    AsynchCounter
+  },
+  data:function(){
+    return {
+      counter:0
+    }
+  },
+  computed:{
+    value:{
+      get(){
+        return this.$store.getters.value;
+      },
+      set(value){
+        this.$store.dispatch('updateValue',value)
+      }
+      
+    }
   }
+
 }
 </script>
 
