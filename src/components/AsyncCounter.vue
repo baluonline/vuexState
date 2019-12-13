@@ -10,15 +10,16 @@
 <script>
 
 import { mapActions } from 'vuex';
+import * as types from './store/constants';
 
 export default {
     name:'AsynchCounter',
 
     methods:{
-        ...mapActions([
-            'asynchincrement',
-            'asynchdecrement'
-        ])
+        ...mapActions({
+            'asynchincrement':types.ASYNCHINCREMENT,
+            'asynchdecrement':types.ASYNCHDECREMENT
+        })
             }
 
 }

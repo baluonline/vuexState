@@ -18,6 +18,7 @@ import Counter from './components/Counter';
 import Result from './components/Result';
 import AnotherResult from './components/AnotherResult';
 import AsynchCounter from './components/AsyncCounter';
+import * as types from './components/store/constants';
 
 export default {
   name: 'app',
@@ -35,10 +36,10 @@ export default {
   computed:{
     value:{
       get(){
-        return this.$store.getters.value;
+        return this.$store.getters[types.VALUE];
       },
       set(value){
-        this.$store.dispatch('updateValue',value)
+        this.$store.dispatch(types.UPDATE_VALUE,value)
       }
       
     }

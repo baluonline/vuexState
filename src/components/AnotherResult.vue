@@ -5,11 +5,12 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import * as types from './store/constants';
 export default {
     computed: {
-        ...mapGetters([
-            'doubleCounter'
-        ])
+        ...mapGetters({
+            doubleCounter:types.DOUBLECOUNTER
+        })
     }
 }
 </script>

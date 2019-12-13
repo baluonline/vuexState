@@ -9,15 +9,16 @@
 <script>
 
 import { mapActions } from 'vuex';
+import * as types from './store/constants';
 
 export default {
     name:'counter',
 
     methods:{
-        ...mapActions([
-            'increment',
-            'decrement'
-        ])
+        ...mapActions({
+            'increment':types.INCRMENT,
+            'decrement':types.DECRMENT
+        })
             }
 
 }

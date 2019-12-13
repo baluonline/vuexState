@@ -1,4 +1,4 @@
-const state ={
+/* const state ={
     counter:0,
 };
 const getters={
@@ -42,3 +42,4 @@ export default {
     actions,
     getters
 }
+ */
